@@ -5,16 +5,19 @@
 
 typedef double KILOMETERS; 
 typedef double MICROSECONDS;
-typedef int KILOWATTS; 
-typedef int HERTZ; 
-typedef int JOULES; 
+typedef double KILOWATTS; 
+typedef double MEGAWATTS; 
+typedef double HERTZ; 
+typedef double JOULES; 
 
 #define c 300000 // km per second 
 
 class PulseWaveform
 {
 public:
-	PulseWaveform(); 
+	PulseWaveform(MEGAWATTS INPUT_peak_power, HERTZ INPUT_pulse_repetition_frequency, MICROSECONDS INPUT_pulse_width); 
+	KILOWATTS get_average_power(); 
+	JOULES get_pulse_energy(); 
 
 private:
 	KILOWATTS peak_power;
